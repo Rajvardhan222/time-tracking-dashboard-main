@@ -216,6 +216,15 @@ select {
 
     .card {
         width: 18rem;
+
+        
+        .info > div:last-child {
+            flex-direction: column;
+            align-items: start;
+            & p:first-child {
+                font-size: 3rem;
+            }
+        }
     }
     .main {
         grid-template-columns: repeat(4,1fr);
