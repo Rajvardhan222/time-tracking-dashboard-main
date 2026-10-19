@@ -1,0 +1,240 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Rubik";
+  background-color: black;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  color: hsl(236, 100%, 87%);
+  gap: 2rem;
+  margin-inline: 1rem;
+  margin-block: 3rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 18px;
+  overflow: hidden;
+
+  & > div:first-child {
+    background-color: hsl(246, 80%, 60%);
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1.3rem;
+    border-radius: 18px;
+    .name {
+      font-size: 1.5rem;
+    }
+  }
+
+  & > div:last-child {
+    background-color: hsl(235, 46%, 20%);
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1.8rem;
+    padding-block: 1.3rem;
+    color: hsl(235, 45%, 61%);
+    font-weight: 500;
+
+    & > .active {
+      color: white;
+    }
+  }
+
+  #avatar {
+    max-width: 5rem;
+    border: 3px solid white;
+    border-radius: 100px;
+  }
+}
+
+.card {
+  background-repeat: no-repeat;
+  background-position: top right;
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 22rem;
+
+  .info {
+    margin-top: 2.5rem;
+    background-color: hsl(235, 46%, 20%);
+    padding-inline: 2rem;
+    padding-block: 1.3rem;
+    border-radius: 18px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding-bottom: 2rem;
+
+    & > div:first-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: white;
+      }
+    }
+    & > div:last-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & > p:first-child {
+        font-size: 2rem;
+        font-weight: 300;
+        color: white;
+      }
+    }
+  }
+}
+
+.work {
+  background-color: hsl(15, 100%, 70%);
+  background-image: url("./images/icon-work.svg");
+}
+.play {
+  background-color: hsl(195, 74%, 62%);
+  background-image: url("./images/icon-play.svg");
+}
+.study {
+  background-color: hsl(348, 100%, 68%);
+  background-image: url("./images/icon-study.svg");
+}
+.exercise {
+  background-color: hsl(145, 58%, 55%);
+  background-image: url("./images/icon-exercise.svg");
+}
+.social {
+  background-color: hsl(264, 64%, 52%);
+  background-image: url("./images/icon-social.svg");
+}
+.selfcare {
+      background-color: hsl(43, 84%, 65%);
+  background-image: url("./images/icon-self-care.svg");
+}
+
+@media (min-width:700px){
+    .main {
+        grid-template-columns: 1fr 1fr;
+    }
+    .profile {
+        grid-column: span 2;
+    }
+    .timeperiod {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width:1000px){
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .card {
+        width: 18rem;
+    }
+    .main {
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: 1fr 1fr;
+    }
+    .profile {
+        grid-row: span 2;
+        grid-column: span 1;
+        min-width: 15rem;
+        
+       & > div:first-child {
+         flex-direction: column;
+         align-items: start;
+       }
+
+       & > div:last-child {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+       }
+    }
+}
